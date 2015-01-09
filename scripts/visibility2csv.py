@@ -19,6 +19,13 @@ parser.add_argument(
     default="postprocessing/visibility_map",
     help="path of the dataset with the visibility inside the file"
 )
+parser.add_argument(
+    "--index",
+    nargs="?",
+    default=0,
+    type=int,
+    help="index along the third dimension of the visibility_map"
+)
 
 if __name__ == '__main__':
     args = parser.parse_args()
@@ -28,6 +35,6 @@ if __name__ == '__main__':
     dataset = hdf5_file[dataset_path]
     writer = csv.writer(sys.stdout)
     writer.writerow(["pixel", "visibility"])
-    for i, visibility in enumerate(dataset[0, ..., 0]):
+    for i, visibility in enumerate(dataset[0, ..., args.index]):
         writer.writerow([i + 1, visibility])
     hdf5_file.close()

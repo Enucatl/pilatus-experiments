@@ -1,0 +1,24 @@
+visibility2csv = "visibility2csv.py"
+
+file "../data/0955-5-03a.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.01.08/S00000-00999/S00585.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
+end
+
+file "../data/0955-5-03b.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.01.09/S00000-00999/S00013.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
+end
+
+file "../data/0955-5-03c.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.01.09/S00000-00999/S00017.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
+end
+
+file "../data/microworks-0-2.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.01.08/S00000-00999/S00577.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} --index 10 > #{t.name}"
+end
+
+task :default => [
+  "../data/0955-5-03a.csv",
+  "../data/0955-5-03b.csv",
+  "../data/0955-5-03c.csv",
+  "../data/microworks-0-2.csv",
+]
