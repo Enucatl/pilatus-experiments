@@ -1,10 +1,15 @@
 {% include header.html %}
 
 <body>
+
+    {% include navbar.html %}
     <div class="container">
         {{content}}
         <div class="row">
             <h1>{{page.title}}</h1>
+            <p>The visibility is calculated as twice the ratio of the first
+            and zeroth fourier component of the phase stepping curve. It is
+        averaged over pixels from 230 to 1160.</p>
             <div class="list-group">
                 <div class="list-group-item">average visibility <span
                         id="average-visibility"

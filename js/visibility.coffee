@@ -2,8 +2,7 @@
 ---
 
 $ ->
-    average_visibility_element = $("#average-visibility")
-    file_name = average_visibility_element.data "src"
+    file_name = $("#average-visibility").data "src"
     placeholder = "#visibility-map"
 
     width = $(placeholder).width()
@@ -15,6 +14,19 @@ $ ->
         .height height
         .x_value (d) -> d.pixel
         .y_value (d) -> d.visibility
+        .margin {
+            left: 100
+            top: 20
+            bottom: 100
+            right: 100
+            }
+
+                
+    axes = new d3.chart.Axes()
+        .x_scale line.x_scale()
+        .y_scale line.y_scale()
+        .x_title "pixel"
+        .y_title "visibility"
 
     d3.csv file_name,
         (d) ->
@@ -25,6 +37,8 @@ $ ->
                 console.warn error
                 return
             
+            average_visibility = 100 * d3.mean data[230..1160], (d) -> d.visibility
+            $("#average-visibility").text "#{average_visibility.toFixed(2)} %"
             line.x_scale().domain d3.extent data, (d) -> d.pixel
             line.y_scale().domain [0, 1.1 * d3.max data, (d) -> d.visibility]
             d3.select placeholder
@@ -33,3 +47,10 @@ $ ->
                     values: data
                 ]
                 .call line.draw
+
+            d3.select placeholder
+                .select "svg"
+                .select "g"
+                .datum 1
+                .call axes.draw
+
