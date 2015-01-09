@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<h1>Visibility of grating sets</h1>
+<div class="list-group">
+    {% for post in site.posts %}
+    <a
+        href="{{site.baseurl}}{{post.url}}"
+        class="list-group-item">
+        {{post.date | date_to_string}} {{post.title}}
+    </a>
+    {% endfor %}
+</div>
