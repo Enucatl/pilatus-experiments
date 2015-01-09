@@ -1,3 +1,6 @@
+---
+---
+
 class d3.chart.Line extends d3.chart.BaseChart
 
     constructor: ->

@@ -1,3 +1,6 @@
+---
+---
+
 class d3.chart.Axes extends d3.chart.BaseChart
 
     constructor: ->

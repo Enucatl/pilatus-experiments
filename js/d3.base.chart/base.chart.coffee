@@ -1,3 +1,6 @@
+---
+---
+
 d3.chart ?= {}
 
 class d3.chart.BaseChart
