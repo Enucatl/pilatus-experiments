@@ -9,17 +9,18 @@
                 <div class="list-group-item">average visibility <span
                         id="average-visibility"
                         class="label label-info"
-                        data-src="{{page.data}}">
+                        data-src="{{site.baseurl}}/data/{{page.data}}">
                     </span>
                 </div>
             </div>
             <div id="visibility_map"
                 class="col-xs-12 col-md-8"
-                data-src="{{page.data}}">
+                data-src="{{site.baseurl}}/data/{{page.data}}">
             </div>
         </div>
     </div>
 
 {% include footer.html %}
+{% include post-scripts.html %}
 
 </body>
