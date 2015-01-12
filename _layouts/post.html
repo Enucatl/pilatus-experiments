@@ -4,7 +4,6 @@
 
     {% include navbar.html %}
     <div class="container">
-        {{content}}
         <div class="row">
             <h1>{{page.title}}</h1>
             <p>The visibility is calculated as twice the ratio of the first
@@ -23,6 +22,7 @@
                 data-src="{{site.baseurl}}/data/{{page.data}}">
             </div>
         </div>
+        {{content}}
     </div>
 
 {% include footer.html %}

@@ -3,12 +3,18 @@ layout: default
 ---
 
 <h1>Visibility of grating sets</h1>
+<p>
+Average visibility shown, click for pixel by pixel analysis and more
+details.
+</p>
 <div class="list-group">
     {% for post in site.posts %}
     <a
         href="{{site.baseurl}}{{post.url}}"
         class="list-group-item">
         {{post.date | date_to_string}} {{post.title}}
+        <span class="label label-info"
+            data-src="{{site.baseurl}}/data/{{post.data}}"></span>
     </a>
     {% endfor %}
 </div>
