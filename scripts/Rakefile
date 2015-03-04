@@ -24,6 +24,10 @@ file "../data/0955-5-03c.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythe
   sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
 end
 
+file "../data/0954-5-03a-11b-23c.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.03.03/S00000-00999/S00133.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
+end
+
 file "../data/microworks-0-2.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.01.08/S00000-00999/S00577.hdf5", visibility2csv] do |t|
   sh "python #{t.prerequisites[1]} #{t.source} --index 10 > #{t.name}"
 end
@@ -35,5 +39,6 @@ task :default => [
   "../data/0955-5-03a.csv",
   "../data/0955-5-03b.csv",
   "../data/0955-5-03c.csv",
+  "../data/0954-5-03a-11b-23c.csv",
   "../data/microworks-0-2.csv",
 ]
