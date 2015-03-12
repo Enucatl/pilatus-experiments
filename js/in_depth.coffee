@@ -23,7 +23,7 @@ $ ->
                 width = $(placeholder).width()
                 original_width = 359
                 original_height = 140
-                factor = original_height / original_width
+                factor = 2 * original_height / original_width
                 height = width * factor
 
                 image = new d3.chart.Image()
@@ -38,6 +38,17 @@ $ ->
                         bottom: 0
                         right: 0
                         }
+                colorbar = new d3.chart.Colorbar()
+                    .orient "horizontal"
+                    .color_scale image.color_scale()
+                    .barlength image.width()
+                    .barthickness 0.1 * image.height()
+                    .margin {
+                        bottom: 0.1 * image.height()
+                        left: 0
+                        top: 0
+                        right: 0
+                        }
 
                 sorted = data.map image.color_value()
                     .sort d3.ascending
@@ -45,11 +56,14 @@ $ ->
                 scale_max = d3.quantile sorted, 0.95
                 image.color_scale()
                     .domain [scale_min, scale_max]
+                    .nice()
                 d3.select placeholder
                     .datum data
                     .call image.draw
+                d3.select placeholder
+                    .datum [0]
+                    .call colorbar.draw
 
             create_image "#absorption"
-            create_image "#visibility"
             create_image "#differential_phase"
             create_image "#dark_field"

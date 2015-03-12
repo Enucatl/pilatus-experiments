@@ -13,22 +13,29 @@ date: 2015-03-12 14:40:45
         >
         <h2>Visibility</h2>
     </div>
-    <div id="absorption"
+    <div id="visibility"
         class="col-xs-12 col-md-6"
+        data-src="{{site.baseurl}}/data/{{page.data}}"
+        data-column="visibility"
+        >
+        <h2>Visibility</h2>
+    </div>
+    <div id="absorption"
+        class="col-xs-12 col-md-4"
         data-src="{{site.baseurl}}/data/{{page.data}}"
         data-column="absorption"
         >
         <h2>Absorption</h2>
     </div>
     <div id="differential_phase"
-        class="col-xs-12 col-md-6"
+        class="col-xs-12 col-md-4"
         data-src="{{site.baseurl}}/data/{{page.data}}"
         data-column="differential_phase"
         >
         <h2>Differential phase</h2>
     </div>
     <div id="dark_field"
-        class="col-xs-12 col-md-6"
+        class="col-xs-12 col-md-4"
         data-src="{{site.baseurl}}/data/{{page.data}}"
         data-column="dark_field"
         >
@@ -43,4 +50,5 @@ date: 2015-03-12 14:40:45
 <script src="{{site.baseurl}}/js/d3.line/line.js"></script>
 <script src="{{site.baseurl}}/js/d3.axes/axes.js"></script>
 <script src="{{site.baseurl}}/js/d3.image/image.js"></script>
+<script src="{{site.baseurl}}/js/d3.colorbar/colorbar.js"></script>
 <script src="{{site.baseurl}}/js/in_depth.js"></script>
