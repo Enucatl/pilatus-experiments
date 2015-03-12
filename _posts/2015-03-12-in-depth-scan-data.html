@@ -1,0 +1,48 @@
+---
+layout: post
+title: Visibility
+data: S00202.csv
+---
+
+<div class="row">
+    <p>
+        The setup is a new 120 keV design energy, 3rd Talbot order
+        interferometer. The <a href="http://enucatl.github.io/kit-edgeon-gratings">gratings</a> have been fabricated at KIT.
+    </p>
+    <p>
+        The gratings had to be realigned after the installation of the
+        pilatus detector, hence a direct comparison with the <a
+            href="http://enucatl.github.io/kit-edgeon-gratings/2015/03/03/0954-5-03a-11b-23c.html">mythen
+        data</a> cannot be performed on a pixel-by-pixel basis. The results
+    are nevertheless consistent in showing a rather constant visibility of
+    around 5%. The part with lower visibility moves around as the gratings
+    are moved and should be due to a residual misalignment.
+    </p>
+    <div class="list-group">
+        <div class="list-group-item">average visibility <span
+                id="average-visibility"
+                class="label label-info"
+                data-src="{{site.baseurl}}/data/{{page.data}}">
+            </span>
+        </div>
+    </div>
+    <div class="row">
+         <div id="visibility-map"
+             class="col-xs-12 col-md-8"
+             data-src="{{site.baseurl}}/data/{{page.data}}.csv">
+         </div>
+    </div>
+    <p>
+        The field of view was cropped down to the pixels from 100 to 400,
+        the gap in the middle is visibile.
+    </p>
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+<script src="{{site.baseurl}}/js/d3.base.chart/base.chart.js"></script>
+<script src="{{site.baseurl}}/js/d3.line/line.js"></script>
+<script src="{{site.baseurl}}/js/d3.axes/axes.js"></script>
+<script src="{{site.baseurl}}/js/d3.image/image.js"></script>
+<script src="{{site.baseurl}}/js/in_depth.js"></script>
