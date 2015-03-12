@@ -6,7 +6,7 @@ file "../data/S00202.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2
 end
 
 file "../data/S00218_S00937.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.11/S00000-00999/S00218_S00937.hdf5", hdf52csv] do |t|
-  sh "python #{t.prerequisites[1]} #{t.source} --crop 0 -1 0 140 > #{t.name}"
+  sh "python #{t.prerequisites[1]} #{t.source} --crop 0 140 0 -1 > #{t.name}"
 end
 
 task :default => [
