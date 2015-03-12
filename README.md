@@ -1,2 +1,2 @@
-# kit-edgeon-gratings
-Data for the gratings from KIT
+# pilatus-experiments
+Most important results with the new pilatus detector.
