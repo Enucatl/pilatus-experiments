@@ -1,9 +1,15 @@
 visibility2csv = "visibility2csv.py"
+hdf52csv = "hdf52csv.py"
 
 file "../data/S00202.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.10/S00000-00999/S00202.hdf5", visibility2csv] do |t|
   sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
 end
 
+file "../data/S00218_S00937.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.11/S00000-00999/S00218_S00937.hdf5", hdf52csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} --crop 0 -1 0 140 > #{t.name}"
+end
+
 task :default => [
   "../data/S00202.csv",
+  "../data/S00218_S00937.csv",
 ]
