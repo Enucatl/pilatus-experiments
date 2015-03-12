@@ -1,0 +1,33 @@
+---
+layout: post
+title: Pilatus ROI
+---
+
+<div class="row">
+    <ul>
+        <li class="alert alert-danger">
+            required by the <a
+                href="https://github.com/Enucatl/spec-dectris-pilatus">spec
+            macros</a> on the detector server.
+        </li>
+        <li>
+            install <a
+                href="https://github.com/yyuu/pyenv-installer">pyenv</a> on
+            the detector server.
+        </li>
+        <li>
+            <code>pyenv install 3.4.1</code>
+        </li>
+        <li>
+            clone the <a
+                href="https://github.com/Enucatl/dectris-pilatus-roi">repository</a>
+            <code>git clone https://github.com/Enucatl/dectris-pilatus-roi.git</code>
+        </li>
+        <li>install the script with
+            <pre>
+            cd dectris-pilatus-roi
+            python setup.py develop
+            pyenv rehash</pre>
+        </li>
+    </ul>
+</div>

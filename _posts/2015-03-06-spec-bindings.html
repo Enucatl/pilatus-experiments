@@ -1,0 +1,30 @@
+---
+layout: post
+title: Spec bindings
+---
+
+<div class="row">
+    <ul>
+        <li>
+            Send commands from <a
+                href="http://www.certif.com/content/spec/">spec</a> to the
+            detector server with the <a href="http://www.certif.com/spec_help/sockets.html"><code>sock_put</code></a>
+            function.
+        </li>
+        <li>
+            The <code>sock_get</code> command is used to wait for the
+            commands to run on the server and display the result if
+            appropriate.
+        </li>
+        <li>
+            The macros are set up so that the <code>camserver</code> saves
+            the image in raw binary format: a C-style ordered 619x487
+            sequence of <code>int32</code>.
+        </li>
+        <li>
+            After the image is saved, it is cropped with the <a
+                href="https://github.com/Enucatl/dectris-pilatus-roi">dectris-pilatus-roi</a>
+            script. The original image is overwritten.
+        </li>
+    </ul>
+</div>
