@@ -9,7 +9,12 @@ file "../data/S00218_S00937.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pi
   sh "python #{t.prerequisites[1]} #{t.source} --crop 0 140 0 -1 > #{t.name}"
 end
 
+file "../data/S00218_S00937_average_visibility.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.11/S00000-00999/S00218_S00937.hdf5", "average_visibility2csv.py"] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} --crop 0 140 0 -1 > #{t.name}"
+end
+
 task :default => [
   "../data/S00202.csv",
   "../data/S00218_S00937.csv",
+  "../data/S00218_S00937_average_visibility.csv",
 ]
