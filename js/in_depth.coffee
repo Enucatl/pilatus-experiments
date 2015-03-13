@@ -86,9 +86,9 @@ $ ->
                     .x_value (d) -> d.pixel
                     .y_value (d) -> d.visibility
                     .margin {
-                        left: 0
+                        left: 50
                         top: 0
-                        bottom: 0
+                        bottom: 50
                         right: 0
                         }
 
@@ -113,4 +113,41 @@ $ ->
                     .select "g"
                     .datum 1
                     .call axes.draw
+
+                histogram = new d3.chart.Bar()
+                    .width width
+                    .height height
+                    .margin {
+                        left: 50
+                        top: 0
+                        bottom: 50
+                        right: 0
+                        }
+
+                n_bins = 20
+                histogram.x_scale().domain [
+                    0.8 * d3.min data, (d) -> d.visibility
+                    1.2 * d3.max data, (d) -> d.visibility
+                ]
+
+                histogram_data = d3.layout.histogram()
+                    .bins(histogram.x_scale().ticks(n_bins))(
+                        data.map (d) -> d.visibility)
+                histogram.y_scale().domain [0, 1.1 * d3.max histogram_data, (d) -> d.y]
+
+                histogram_axes = new d3.chart.Axes()
+                    .x_scale histogram.x_scale()
+                    .y_scale histogram.y_scale()
+                    .x_title "visibility"
+                    .y_title "#pixels"
+
+                d3.select "#visibility_histogram"
+                    .datum histogram_data
+                    .call histogram.draw
+
+                d3.select "#visibility_histogram"
+                    .select "svg"
+                    .select "g"
+                    .datum 1
+                    .call histogram_axes.draw
 
