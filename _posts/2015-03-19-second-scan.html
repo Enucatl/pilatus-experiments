@@ -1,0 +1,82 @@
+---
+layout: post
+title: In-depth scan data
+data: S00123_S00842.csv
+date: 2015-03-19 14:40:45
+---
+
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <p>
+            Move the mouse over the images to see the detailed data about
+            each pixel.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div id="absorption"
+        class="col-xs-12 col-md-4"
+        data-src="{{site.baseurl}}/data/{{page.data}}"
+        data-column="absorption"
+        >
+        <h2>Absorption</h2>
+    </div>
+    <div id="differential_phase"
+        class="col-xs-12 col-md-4"
+        data-src="{{site.baseurl}}/data/{{page.data}}"
+        data-column="differential_phase"
+        >
+        <h2>Differential phase</h2>
+    </div>
+    <div id="dark_field"
+        class="col-xs-12 col-md-4"
+        data-src="{{site.baseurl}}/data/{{page.data}}"
+        data-column="dark_field"
+        >
+        <h2>Dark field</h2>
+    </div>
+</div>
+<div class="row">
+    <div id="phase_stepping"
+        class="col-xs-12 col-md-6"
+        >
+        <h2>Phase stepping curves</h2>
+    </div>
+    <div id="pixel_data"
+        class="col-xs-12 col-md-6"
+        >
+        <h2>Pixel data</h2>
+        <ul>
+            <li id="pixel_number"></li>
+            <li id="absorption_value"></li>
+            <li id="differential_phase_value"></li>
+            <li id="dark_field_value"></li>
+            <li id="visibility_value"></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div id="visibility_map"
+        class="col-xs-12 col-md-6"
+        data-src="{{site.baseurl}}/data/S00218_S00937_average_visibility.csv"
+        >
+        <h2>Visibility map</h2>
+    </div>
+    <div id="visibility_histogram"
+        class="col-xs-12 col-md-6"
+        >
+        <h2>Visibility distribution</h2>
+    </div>
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+<script src="{{site.baseurl}}/js/d3.base.chart/base.chart.js"></script>
+<script src="{{site.baseurl}}/js/d3.line/line.js"></script>
+<script src="{{site.baseurl}}/js/d3.axes/axes.js"></script>
+<script src="{{site.baseurl}}/js/d3.image/image.js"></script>
+<script src="{{site.baseurl}}/js/d3.colorbar/colorbar.js"></script>
+<script src="{{site.baseurl}}/js/d3.barchart/bar.js"></script>
+<script src="{{site.baseurl}}/js/in_depth.js"></script>
