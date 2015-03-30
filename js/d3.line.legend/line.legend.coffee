@@ -1,3 +1,6 @@
+---
+---
+
 class d3.chart.LineLegend extends d3.chart.BaseChart
 
     constructor: ->
