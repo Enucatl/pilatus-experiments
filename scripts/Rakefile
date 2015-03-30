@@ -1,5 +1,6 @@
 visibility2csv = "visibility2csv.py"
 hdf52csv = "hdf52csv.py"
+efficiency_comparison = "efficiency-comparison/compare.py"
 
 file "../data/S00121.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.19/S00000-00999/S00121.hdf5", visibility2csv] do |t|
   sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
@@ -25,6 +26,14 @@ file "../data/S00123_S00842_average_visibility.csv" => ["/afs/psi.ch/project/hed
   sh "python #{t.prerequisites[1]} #{t.source} --crop 0 140 0 -1 > #{t.name}"
 end
 
+task "mythen_efficiency" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.03.27/ct.hdf5", efficiency_comparison] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} ../data/#{t.name}.csv ../data/#{t.name}_chi.csv"
+end
+
+task "pilatus_efficiency" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.19/ct.hdf5", efficiency_comparison] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} ../data/#{t.name}.csv ../data/#{t.name}_chi.csv"
+end
+
 task :default => [
   "../data/S00121.csv",
   "../data/S00202.csv",
@@ -32,4 +41,6 @@ task :default => [
   "../data/S00218_S00937_average_visibility.csv",
   "../data/S00123_S00842.csv",
   "../data/S00123_S00842_average_visibility.csv",
+  "pilatus_efficiency",
+  "mythen_efficiency",
 ]
