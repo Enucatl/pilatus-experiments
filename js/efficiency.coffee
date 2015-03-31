@@ -29,7 +29,7 @@ $ ->
         .x_title "exposure (s)"
         .y_title "counts"
 
-    axes.x_axis().ticks 4, d3.format ".1f"
+    axes.x_axis().ticks 4, d3.format ".1r"
     axes.y_axis().ticks 4, d3.format ",d"
 
     legend = new d3.chart.LineLegend()
@@ -68,3 +68,50 @@ $ ->
                 .datum 1
                 .call axes.draw
                 .call legend.draw
+
+            table_data = mythen.map (d, i) ->
+                exposure: d.exposure
+                mythen: d.counts.toFixed 0
+                pilatus: pilatus[i].counts.toFixed 0
+
+            table = d3.select "#efficiency-table"
+                .selectAll "table"
+                .data [table_data]
+            
+            table.enter()
+                .append "table"
+                .classed "table", true
+
+            thead = table.selectAll "thead"
+                .data [1]
+                .enter()
+                .append "thead"
+
+            tbody = table.selectAll "tbody"
+                .data [1]
+                .enter()
+                .append "tbody"
+
+            thead.append "tr"
+                .selectAll "th"
+                .data ["exposure (s)", "mythen", "pilatus"]
+                .enter()
+                .append "th"
+                .text (d) -> d
+
+            rows = tbody.selectAll "tr"
+                .data table_data
+                .enter()
+                .append "tr"
+
+            cells = rows.selectAll "td"
+                .data (d) ->
+                    ["exposure", "mythen", "pilatus"].map (e) -> 
+                        column: e
+                        value: d[e]
+                .enter()
+                .append "td"
+                .html (d) -> d.value
+
+            table.exit().remove()
+
