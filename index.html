@@ -8,7 +8,7 @@ layout: default
     {% for post in site.posts %}
     <a
         href="{{site.baseurl}}{{post.url}}"
-        class="list-group-item">
+        class="list-group-item {{post.liclass}}">
         {{post.date | date_to_string}} {{post.title}}
         <span class="label label-info"
             data-src="{{site.baseurl}}/data/{{post.data}}"></span>

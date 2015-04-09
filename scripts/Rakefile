@@ -6,6 +6,10 @@ file "../data/S00121.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2
   sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
 end
 
+file "../data/S00005.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/mythen/2015.04.08/S00000-00999/S00005.hdf5", visibility2csv] do |t|
+  sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
+end
+
 file "../data/S00202.csv" => ["/afs/psi.ch/project/hedpc/raw_data/2015/pilatus/2015.03.10/S00000-00999/S00202.hdf5", visibility2csv] do |t|
   sh "python #{t.prerequisites[1]} #{t.source} > #{t.name}"
 end
@@ -37,6 +41,7 @@ end
 task :default => [
   "../data/S00121.csv",
   "../data/S00202.csv",
+  "../data/S00005.csv",
   "../data/S00218_S00937.csv",
   "../data/S00218_S00937_average_visibility.csv",
   "../data/S00123_S00842.csv",
