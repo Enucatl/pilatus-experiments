@@ -2,7 +2,7 @@
 ---
 
 $ ->
-    file_name = $("#average-visibility").data "src"
+    file_name = $("#visibility-map").data "src"
     placeholder = "#visibility-map"
 
     width = $(placeholder).width()
