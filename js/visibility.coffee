@@ -37,8 +37,6 @@ $ ->
                 console.warn error
                 return
             
-            average_visibility = 100 * d3.mean data[230..1160], (d) -> d.visibility
-            $("#average-visibility").text "#{average_visibility.toFixed(2)} %"
             line.x_scale().domain d3.extent data, (d) -> d.pixel
             line.y_scale().domain [0, 1.1 * d3.max data, (d) -> d.visibility]
             d3.select placeholder
